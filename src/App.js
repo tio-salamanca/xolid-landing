@@ -9,6 +9,12 @@ import XolidSection from './components/XolidSection';
 import XolidOpportunityCard from './components/XolidOpportunityCard';
 import XolidTabNavigation from './components/XolidTabNavigation';
 
+const tabs = [
+  { id: 'education', label: '🎓 Educación' },
+  { id: 'solidarity', label: '🌍 Solidaridad' },
+  { id: 'actions', label: '⛏️ Mis Acciones' }
+];
+
 const App = () => {
   const [currentUser, setCurrentUser] = useState(users[0]);
   const [activeTab, setActiveTab] = useState('education');
@@ -27,12 +33,6 @@ const App = () => {
     };
     setCurrentUser(updatedUser);
   };
-
-  const tabs = [
-    { id: 'education', label: '🎓 Educación' },
-    { id: 'solidarity', label: '🌍 Solidaridad' },
-    { id: 'actions', label: '⛏️ Mis Acciones' }
-  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
