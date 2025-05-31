@@ -4,26 +4,26 @@ import { useTranslation } from "react-i18next";
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
+  const languages = [
+    { code: 'es', label: 'ES' },
+    { code: 'de', label: 'DE' },
+    { code: 'en', label: 'EN' }
+  ];
+
   return (
     <div className="flex gap-2 ml-4">
-      <button
-        className={`px-2 py-1 rounded ${i18n.language === 'es' ? 'bg-green-500 text-white' : 'bg-white text-green-700 border'}`}
-        onClick={() => i18n.changeLanguage('es')}
-      >
-        ES
-      </button>
-      <button
-        className={`px-2 py-1 rounded ${i18n.language === 'de' ? 'bg-green-500 text-white' : 'bg-white text-green-700 border'}`}
-        onClick={() => i18n.changeLanguage('de')}
-      >
-        DE
-      </button>
-      <button
-        className={`px-2 py-1 rounded ${i18n.language === 'en' ? 'bg-green-500 text-white' : 'bg-white text-green-700 border'}`}
-        onClick={() => i18n.changeLanguage('en')}
-      >
-        EN
-      </button>
+      {languages.map((lang) => (
+        <button
+          key={lang.code}
+          className={`px-2 py-1 rounded transition 
+            ${i18n.language === lang.code 
+              ? 'bg-green-500 text-white font-bold shadow' 
+              : 'bg-white text-green-700 border border-green-500 hover:bg-green-100'}`}
+          onClick={() => i18n.changeLanguage(lang.code)}
+        >
+          {lang.label}
+        </button>
+      ))}
     </div>
   );
 };
