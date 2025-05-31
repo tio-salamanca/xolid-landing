@@ -1,0 +1,18 @@
+{
+  "header": {
+    "title": "XOLID",
+    "subtitle": "Token für solidarisches Handeln",
+    "mining": "Menschliches Mining"
+  },
+  "balance": {
+    "title": "Dein XOLID Guthaben",
+    "accumulate": "Sammle weiterhin Token durch gute Taten"
+  },
+  "tabs": {
+    "education": "Bildung",
+    "solidarity": "Solidarität",
+    "actions": "Meine Aktionen"
+  },
+  "learn_title": "Lerne und verdiene XOLID",
+  "learn_desc": "Schließe Kurse und Quizze ab, um Token zu verdienen"
+}
