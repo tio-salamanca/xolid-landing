@@ -14,5 +14,8 @@
     "actions": "Meine Aktionen"
   },
   "learn_title": "Lerne und verdiene XOLID",
-  "learn_desc": "Schließe Kurse und Quizze ab, um Token zu verdienen"
+  "learn_desc": "Schließe Kurse und Quizze ab, um Token zu verdienen",
+  "actions_history": "Deine Aktionshistorie",
+  "solidarity_title": "Solidarische Aktionen",
+  "solidarity_desc": "Nimm an sozialen Projekten teil und erhalte Belohnungen"
 }
