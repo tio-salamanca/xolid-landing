@@ -14,8 +14,9 @@ i18n
       en: { translation: en }
     },
     lng: "es",         // Idioma inicial
-    fallbackLng: "es", // Idioma por defecto si falta traducción
+    fallbackLng: "es", // Si falta traducción, usa español
     interpolation: { escapeValue: false }
   });
 
 export default i18n;
+
