@@ -22,4 +22,3 @@ const XolidHeader = () => {
 };
 
 export default XolidHeader;
-
