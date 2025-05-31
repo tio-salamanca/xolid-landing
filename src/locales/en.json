@@ -14,5 +14,8 @@
     "actions": "My Actions"
   },
   "learn_title": "Learn and Earn XOLID",
-  "learn_desc": "Complete courses and quizzes to earn tokens"
+  "learn_desc": "Complete courses and quizzes to earn tokens",
+  "actions_history": "Your Action History",
+  "solidarity_title": "Solidarity Actions",
+  "solidarity_desc": "Participate in social causes and earn rewards"
 }
