@@ -1,3 +1,4 @@
+import './i18n'; // ¡Esto es clave! Siempre antes de React
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
