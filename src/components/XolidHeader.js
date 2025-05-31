@@ -11,8 +11,9 @@ const XolidHeader = () => {
         <h1 className="text-3xl font-bold text-white">{t('header.title')}</h1>
         <div className="flex items-center space-x-4">
           <span className="text-white font-medium">{t('header.subtitle')}</span>
-          <div className="bg-white text-green-600 px-4 py-2 rounded-full font-bold">
-            🌱 {t('header.mining')}
+          <div className="bg-white text-green-600 px-4 py-2 rounded-full font-bold flex items-center gap-2">
+            <span role="img" aria-label="mining">🌱</span>
+            {t('header.mining')}
           </div>
           <LanguageSwitcher />
         </div>
