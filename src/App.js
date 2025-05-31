@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import users from './mock/users';
 import courses from './mock/courses';
 import causes from './mock/causes';
@@ -11,38 +10,61 @@ import XolidOpportunityCard from './components/XolidOpportunityCard';
 import XolidTabNavigation from './components/XolidTabNavigation';
 
 const App = () => {
-  const { t } = useTranslation();
   const [currentUser, setCurrentUser] = useState(users[0]);
   const [activeTab, setActiveTab] = useState('education');
-
-  const tabs = [
-    { id: 'education', label: `🎓 ${t('tabs.education')}` },
-    { id: 'solidarity', label: `🌍 ${t('tabs.solidarity')}` },
-    { id: 'actions', label: `⛏️ ${t('tabs.actions')}` }
-  ];
 
   const handleCompleteAction = (action) => {
     const newAction = {
       ...action,
       type: action.xolidReward ? 'course' : 'donation',
       date: new Date().toISOString().split('T')[0],
-      xolid: action.xolidReward
+      xolid: action.xolidReward,
     };
-
     const updatedUser = {
       ...currentUser,
       xolid: currentUser.xolid + action.xolidReward,
-      actions: [newAction, ...currentUser.actions]
+      actions: [newAction, ...currentUser.actions],
     };
-
     setCurrentUser(updatedUser);
   };
+
+  const tabs = [
+    { id: 'education', label: '🎓 Educación' },
+    { id: 'solidarity', label: '🌍 Solidaridad' },
+    { id: 'actions', label: '⛏️ Mis Acciones' }
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
       <XolidHeader />
-
       <main className="container mx-auto px-4 py-8">
         <XolidBalanceCard balance={currentUser.xolid} />
+        <XolidTabNavigation tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
+        {activeTab === 'education' && (
+          <XolidSection title="Aprende y gana XOLID" description="Completa cursos y quizzes para acumular tokens">
+            {courses.map((course) => (
+              <XolidOpportunityCard key={course.id} opportunity={course} onAction={handleCompleteAction} />
+            ))}
+          </XolidSection>
+        )}
+        {activeTab === 'solidarity' && (
+          <XolidSection title="Acciones Solidarias" description="Participa en causas sociales y gana recompensas">
+            {causes.map((cause) => (
+              <XolidOpportunityCard key={cause.id} opportunity={cause} onAction={handleCompleteAction} />
+            ))}
+          </XolidSection>
+        )}
+        {activeTab === 'actions' && (
+          <div>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Tu Historial de Acciones</h2>
+            {currentUser.actions.map((action, index) => (
+              <XolidActionCard key={index} action={action} />
+            ))}
+          </div>
+        )}
+      </main>
+    </div>
+  );
+};
 
-        <XolidTabNavigation tabs
+export default App;
