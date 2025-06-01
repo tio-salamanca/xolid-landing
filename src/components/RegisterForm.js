@@ -14,17 +14,10 @@ const RegisterForm = () => {
     setMessage("");
 
     try {
-      // Check if email or wallet already exists
-      const q = query(
-        collection(db, "users"),
-        where("email", "==", email)
-      );
+      const q = query(collection(db, "users"), where("email", "==", email));
       const querySnapshot = await getDocs(q);
 
-      const q2 = query(
-        collection(db, "users"),
-        where("wallet", "==", wallet)
-      );
+      const q2 = query(collection(db, "users"), where("wallet", "==", wallet));
       const querySnapshot2 = await getDocs(q2);
 
       if (!querySnapshot.empty) {
@@ -41,7 +34,7 @@ const RegisterForm = () => {
       await addDoc(collection(db, "users"), {
         email,
         wallet,
-        createdAt: new Date(),
+        createdAt: new Date()
       });
 
       setMessage("Registro exitoso.");
