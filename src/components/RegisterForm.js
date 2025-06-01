@@ -3,7 +3,7 @@ import { db } from "../firebase";
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { useTranslation } from "react-i18next";
 
-const RegisterForm = () => {
+const RegisterForm = ({ onRegisterSuccess }) => {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [wallet, setWallet] = useState("");
@@ -42,6 +42,7 @@ const RegisterForm = () => {
       setMessage(t("register_success") || "Registro exitoso.");
       setEmail("");
       setWallet("");
+      if (onRegisterSuccess) onRegisterSuccess(email, wallet); // <--- LLAMA AL PADRE
     } catch (error) {
       setMessage(t("register_error") || "Ocurrió un error al registrar. Intenta de nuevo.");
     }
