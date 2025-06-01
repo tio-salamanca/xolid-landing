@@ -6,6 +6,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    fallbackLng: 'es',
     resources: {
       es: {
         translation: {
@@ -13,12 +14,7 @@ i18n
           education: "Educación",
           solidarity: "Solidaridad",
           actions: "Mis Acciones",
-          balance: "Saldo XOLID",
-          learn_and_earn: "Aprende y gana XOLID",
-          solidarity_actions: "Acciones Solidarias",
-          history: "Tu Historial de Acciones",
-          participate: "Participa en causas sociales y gana recompensas",
-          complete_courses: "Completa cursos y quizzes para acumular tokens"
+          language: "Idioma",
         }
       },
       en: {
@@ -27,12 +23,7 @@ i18n
           education: "Education",
           solidarity: "Solidarity",
           actions: "My Actions",
-          balance: "XOLID Balance",
-          learn_and_earn: "Learn and earn XOLID",
-          solidarity_actions: "Solidarity Actions",
-          history: "Your Action History",
-          participate: "Participate in social causes and earn rewards",
-          complete_courses: "Complete courses and quizzes to earn tokens"
+          language: "Language",
         }
       },
       de: {
@@ -41,16 +32,10 @@ i18n
           education: "Bildung",
           solidarity: "Solidarität",
           actions: "Meine Aktionen",
-          balance: "XOLID Saldo",
-          learn_and_earn: "Lerne und verdiene XOLID",
-          solidarity_actions: "Solidarische Aktionen",
-          history: "Dein Aktionsverlauf",
-          participate: "Nimm an sozialen Aktionen teil und erhalte Belohnungen",
-          complete_courses: "Absolviere Kurse und Quiz, um Tokens zu verdienen"
+          language: "Sprache",
         }
       }
     },
-    fallbackLng: 'es',
     interpolation: {
       escapeValue: false
     }
