@@ -1,0 +1,21 @@
+{
+  "welcome": "Welcome to Xolid!",
+  "education": "Education",
+  "solidarity": "Solidarity",
+  "actions": "My Actions",
+  "learn_and_earn": "Learn and earn XOLID",
+  "complete_courses": "Complete courses and quizzes to earn tokens",
+  "solidarity_actions": "Solidarity Actions",
+  "join_causes": "Join social causes and earn rewards",
+  "history": "Your Action History",
+  "balance": "Balance",
+  "user_registration": "User Registration",
+  "email": "Email",
+  "wallet": "Wallet",
+  "register": "Register",
+  "registering": "Registering...",
+  "email_already_registered": "Email already registered.",
+  "wallet_already_registered": "Wallet already registered.",
+  "register_success": "Successfully registered.",
+  "register_error": "There was an error. Please try again."
+}
