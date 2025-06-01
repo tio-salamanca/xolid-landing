@@ -13,8 +13,13 @@ i18n
           education: "Educación",
           solidarity: "Solidaridad",
           actions: "Mis Acciones",
-          // ...agrega más claves/valores según tus necesidades
-        },
+          balance: "Saldo XOLID",
+          learn_and_earn: "Aprende y gana XOLID",
+          solidarity_actions: "Acciones Solidarias",
+          history: "Tu Historial de Acciones",
+          participate: "Participa en causas sociales y gana recompensas",
+          complete_courses: "Completa cursos y quizzes para acumular tokens"
+        }
       },
       en: {
         translation: {
@@ -22,8 +27,13 @@ i18n
           education: "Education",
           solidarity: "Solidarity",
           actions: "My Actions",
-          // ...agrega más claves/valores según tus necesidades
-        },
+          balance: "XOLID Balance",
+          learn_and_earn: "Learn and earn XOLID",
+          solidarity_actions: "Solidarity Actions",
+          history: "Your Action History",
+          participate: "Participate in social causes and earn rewards",
+          complete_courses: "Complete courses and quizzes to earn tokens"
+        }
       },
       de: {
         translation: {
@@ -31,14 +41,19 @@ i18n
           education: "Bildung",
           solidarity: "Solidarität",
           actions: "Meine Aktionen",
-          // ...agrega más claves/valores según tus necesidades
-        },
-      },
+          balance: "XOLID Saldo",
+          learn_and_earn: "Lerne und verdiene XOLID",
+          solidarity_actions: "Solidarische Aktionen",
+          history: "Dein Aktionsverlauf",
+          participate: "Nimm an sozialen Aktionen teil und erhalte Belohnungen",
+          complete_courses: "Absolviere Kurse und Quiz, um Tokens zu verdienen"
+        }
+      }
     },
     fallbackLng: 'es',
     interpolation: {
-      escapeValue: false,
-    },
+      escapeValue: false
+    }
   });
 
 export default i18n;
