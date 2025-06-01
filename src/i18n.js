@@ -1,21 +1,44 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-
-import es from './locales/es.json';
-import de from './locales/de.json';
-import en from './locales/en.json';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 i18n
+  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources: {
-      es: { translation: es },
-      de: { translation: de },
-      en: { translation: en }
+      es: {
+        translation: {
+          welcome: "¡Bienvenido a Xolid!",
+          education: "Educación",
+          solidarity: "Solidaridad",
+          actions: "Mis Acciones",
+          // ...agrega más claves/valores según tus necesidades
+        },
+      },
+      en: {
+        translation: {
+          welcome: "Welcome to Xolid!",
+          education: "Education",
+          solidarity: "Solidarity",
+          actions: "My Actions",
+          // ...agrega más claves/valores según tus necesidades
+        },
+      },
+      de: {
+        translation: {
+          welcome: "Willkommen bei Xolid!",
+          education: "Bildung",
+          solidarity: "Solidarität",
+          actions: "Meine Aktionen",
+          // ...agrega más claves/valores según tus necesidades
+        },
+      },
     },
-    lng: "es",         // Idioma inicial
-    fallbackLng: "es", // Si falta traducción, usa español
-    interpolation: { escapeValue: false }
+    fallbackLng: 'es',
+    interpolation: {
+      escapeValue: false,
+    },
   });
 
 export default i18n;
