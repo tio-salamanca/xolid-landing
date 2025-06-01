@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import users from './mock/users';
 import courses from './mock/courses';
 import causes from './mock/causes';
@@ -9,22 +8,12 @@ import XolidActionCard from './components/XolidActionCard';
 import XolidSection from './components/XolidSection';
 import XolidOpportunityCard from './components/XolidOpportunityCard';
 import XolidTabNavigation from './components/XolidTabNavigation';
-
-const LanguageSelector = () => {
-  const { i18n } = useTranslation();
-  return (
-    <div className="flex gap-2 justify-end mb-4">
-      <button onClick={() => i18n.changeLanguage('es')} className="px-2 py-1 bg-gray-200 rounded">ES</button>
-      <button onClick={() => i18n.changeLanguage('en')} className="px-2 py-1 bg-gray-200 rounded">EN</button>
-      <button onClick={() => i18n.changeLanguage('de')} className="px-2 py-1 bg-gray-200 rounded">DE</button>
-    </div>
-  );
-};
+import { useTranslation } from 'react-i18next';
 
 const App = () => {
-  const { t } = useTranslation();
   const [currentUser, setCurrentUser] = useState(users[0]);
   const [activeTab, setActiveTab] = useState('education');
+  const { t } = useTranslation();
 
   const tabs = [
     { id: 'education', label: `🎓 ${t('education')}` },
@@ -51,10 +40,9 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <LanguageSelector />
       <XolidHeader />
       <main className="container mx-auto px-4 py-8">
-        <XolidBalanceCard balance={currentUser.xolid} label={t('balance')} />
+        <XolidBalanceCard balance={currentUser.xolid} />
         <XolidTabNavigation tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
         {activeTab === 'education' && (
           <XolidSection
