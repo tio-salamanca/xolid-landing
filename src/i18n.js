@@ -9,13 +9,11 @@ i18n.use(initReactI18next).init({
   resources: {
     en: { translation: en },
     es: { translation: es },
-    de: { translation: de },
+    de: { translation: de }
   },
   lng: 'es',
   fallbackLng: 'en',
-  interpolation: {
-    escapeValue: false,
-  },
+  interpolation: { escapeValue: false }
 });
 
 export default i18n;
