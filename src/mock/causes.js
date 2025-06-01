@@ -1,16 +1,15 @@
 const causes = [
   {
     id: 1,
-    title: "Educación en zonas rurales",
-    description: "Llevamos tecnología y conocimiento a comunidades alejadas",
-    xolidReward: 200
+    title: "Reforestación",
+    xolidReward: 5,
+    description: "Participa plantando árboles en tu ciudad."
   },
   {
     id: 2,
-    title: "Reforestación urbana",
-    description: "Plantamos árboles en ciudades para mejorar la calidad del aire",
-    xolidReward: 150
+    title: "Donación de alimentos",
+    xolidReward: 6,
+    description: "Ayuda donando comida a familias necesitadas."
   }
 ];
-
 export default causes;
