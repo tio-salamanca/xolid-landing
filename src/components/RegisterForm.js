@@ -3,7 +3,7 @@ import { db } from "../firebase";
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { useTranslation } from "react-i18next";
 
-const RegisterForm = ({ onRegisterSuccess }) => {
+const RegisterForm = () => {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [wallet, setWallet] = useState("");
@@ -23,12 +23,12 @@ const RegisterForm = ({ onRegisterSuccess }) => {
       const walletSnapshot = await getDocs(walletQuery);
 
       if (!emailSnapshot.empty) {
-        setMessage(t("email_already_registered") || "El email ya está registrado.");
+        setMessage(t("email_already_registered"));
         setLoading(false);
         return;
       }
       if (!walletSnapshot.empty) {
-        setMessage(t("wallet_already_registered") || "La wallet ya está registrada.");
+        setMessage(t("wallet_already_registered"));
         setLoading(false);
         return;
       }
@@ -39,21 +39,20 @@ const RegisterForm = ({ onRegisterSuccess }) => {
         createdAt: new Date()
       });
 
-      setMessage(t("register_success") || "Registro exitoso.");
+      setMessage(t("register_success"));
       setEmail("");
       setWallet("");
-      if (onRegisterSuccess) onRegisterSuccess(email, wallet); // <--- LLAMA AL PADRE
     } catch (error) {
-      setMessage(t("register_error") || "Ocurrió un error al registrar. Intenta de nuevo.");
+      setMessage(t("register_error"));
     }
     setLoading(false);
   };
 
   return (
     <form onSubmit={handleRegister} style={{ maxWidth: 400, margin: "2rem auto" }}>
-      <h2>{t("user_registration") || "Registro de Usuario"}</h2>
+      <h2>{t("user_registration")}</h2>
       <div>
-        <label>{t("email") || "Email"}:</label>
+        <label>{t("email")}:</label>
         <input
           type="email"
           required
@@ -63,7 +62,7 @@ const RegisterForm = ({ onRegisterSuccess }) => {
         />
       </div>
       <div>
-        <label>{t("wallet") || "Wallet"}:</label>
+        <label>{t("wallet")}:</label>
         <input
           type="text"
           required
@@ -73,7 +72,7 @@ const RegisterForm = ({ onRegisterSuccess }) => {
         />
       </div>
       <button type="submit" disabled={loading}>
-        {loading ? t("registering") || "Registrando..." : t("register") || "Registrar"}
+        {loading ? t("registering") : t("register_btn")}
       </button>
       {message && <div style={{ marginTop: 10 }}>{message}</div>}
     </form>
