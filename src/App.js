@@ -15,13 +15,13 @@ import RegisterForm from './components/RegisterForm';
 const App = () => {
   const { t } = useTranslation();
   const [currentUser, setCurrentUser] = useState(users[0]);
-  const [activeTab, setActiveTab] = useState('education');
+  const [registered, setRegistered] = useState(false);
+  const [activeTab, setActiveTab] = useState('register');
 
   const tabs = [
     { id: 'education', label: t('education') },
     { id: 'solidarity', label: t('solidarity') },
-    { id: 'actions', label: t('actions') },
-    { id: 'register', label: t('register') }
+    { id: 'actions', label: t('actions') }
   ];
 
   const handleCompleteAction = (action) => {
@@ -31,59 +31,77 @@ const App = () => {
       date: new Date().toISOString().split('T')[0],
       xolid: action.xolidReward
     };
-
     const updatedUser = {
       ...currentUser,
       xolid: currentUser.xolid + action.xolidReward,
       actions: [newAction, ...currentUser.actions]
     };
-
     setCurrentUser(updatedUser);
+  };
+
+  // Llamado después de registro exitoso
+  const handleRegisterSuccess = (email, wallet) => {
+    setRegistered(true);
+    setActiveTab('education');
+    setCurrentUser({
+      ...currentUser,
+      email,
+      wallet
+    });
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
       <XolidHeader />
       <main className="container mx-auto px-4 py-8">
-        <XolidBalanceCard balance={currentUser.xolid} />
-        <XolidTabNavigation tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
-        {activeTab === 'education' && (
-          <XolidSection
-            title={t("learn_and_earn")}
-            description={t("complete_courses")}
-          >
-            {courses.map((course) => (
-              <XolidOpportunityCard
-                key={course.id}
-                opportunity={course}
-                onAction={handleCompleteAction}
-              />
-            ))}
-          </XolidSection>
+        {!registered ? (
+          <RegisterForm onRegisterSuccess={handleRegisterSuccess} />
+        ) : (
+          <>
+            <XolidBalanceCard balance={currentUser.xolid} />
+            <XolidTabNavigation
+              tabs={tabs}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+            />
+            {activeTab === 'education' && (
+              <XolidSection
+                title={t("learn_and_earn")}
+                description={t("complete_courses")}
+              >
+                {courses.map((course) => (
+                  <XolidOpportunityCard
+                    key={course.id}
+                    opportunity={course}
+                    onAction={handleCompleteAction}
+                  />
+                ))}
+              </XolidSection>
+            )}
+            {activeTab === 'solidarity' && (
+              <XolidSection
+                title={t("solidarity_actions")}
+                description={t("join_causes")}
+              >
+                {causes.map((cause) => (
+                  <XolidOpportunityCard
+                    key={cause.id}
+                    opportunity={cause}
+                    onAction={handleCompleteAction}
+                  />
+                ))}
+              </XolidSection>
+            )}
+            {activeTab === 'actions' && (
+              <div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">{t("history")}</h2>
+                {currentUser.actions.map((action, index) => (
+                  <XolidActionCard key={index} action={action} />
+                ))}
+              </div>
+            )}
+          </>
         )}
-        {activeTab === 'solidarity' && (
-          <XolidSection
-            title={t("solidarity_actions")}
-            description={t("join_causes")}
-          >
-            {causes.map((cause) => (
-              <XolidOpportunityCard
-                key={cause.id}
-                opportunity={cause}
-                onAction={handleCompleteAction}
-              />
-            ))}
-          </XolidSection>
-        )}
-        {activeTab === 'actions' && (
-          <div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">{t("history")}</h2>
-            {currentUser.actions.map((action, index) => (
-              <XolidActionCard key={index} action={action} />
-            ))}
-          </div>
-        )}
-        {activeTab === 'register' && <RegisterForm />}
       </main>
     </div>
   );
