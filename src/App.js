@@ -16,10 +16,8 @@ const App = () => {
   const { t } = useTranslation();
   const [currentUser, setCurrentUser] = useState(users[0]);
   const [registered, setRegistered] = useState(false);
-  // El activeTab depende de si está registrado
   const [activeTab, setActiveTab] = useState('education');
 
-  // Tabs para usuario registrado
   const tabs = [
     { id: 'education', label: t('education') },
     { id: 'solidarity', label: t('solidarity') },
@@ -67,8 +65,8 @@ const App = () => {
             />
             {activeTab === 'education' && (
               <XolidSection
-                title={t("learn_and_earn")}
-                description={t("complete_courses")}
+                title={t('learn_and_earn')}
+                description={t('complete_courses')}
               >
                 {courses.map((course) => (
                   <XolidOpportunityCard
@@ -81,8 +79,8 @@ const App = () => {
             )}
             {activeTab === 'solidarity' && (
               <XolidSection
-                title={t("solidarity_actions")}
-                description={t("join_causes")}
+                title={t('solidarity_actions')}
+                description={t('join_causes')}
               >
                 {causes.map((cause) => (
                   <XolidOpportunityCard
@@ -95,7 +93,7 @@ const App = () => {
             )}
             {activeTab === 'actions' && (
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">{t("history")}</h2>
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('history')}</h2>
                 {currentUser.actions.map((action, index) => (
                   <XolidActionCard key={index} action={action} />
                 ))}
