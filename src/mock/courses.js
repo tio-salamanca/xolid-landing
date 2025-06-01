@@ -1,18 +1,15 @@
 const courses = [
   {
     id: 1,
-    title: "Introducción a Blockchain",
-    duration: "2 horas",
-    xolidReward: 300,
-    completed: false
+    title: "Curso de Blockchain",
+    xolidReward: 5,
+    description: "Aprende cómo funciona la tecnología blockchain."
   },
   {
     id: 2,
-    title: "Finanzas Descentralizadas",
-    duration: "3 horas",
-    xolidReward: 450,
-    completed: true
+    title: "Curso de Finanzas Personales",
+    xolidReward: 5,
+    description: "Mejora tus finanzas y aprende a invertir."
   }
 ];
-
 export default courses;
