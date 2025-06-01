@@ -1,21 +1,11 @@
 {
-  "header": {
-    "title": "XOLID",
-    "subtitle": "Tokens por Acciones Solidarias",
-    "mining": "Minería Humana"
-  },
-  "balance": {
-    "title": "Tu Balance XOLID",
-    "accumulate": "Sigue acumulando tokens con buenas acciones"
-  },
-  "tabs": {
-    "education": "Educación",
-    "solidarity": "Solidaridad",
-    "actions": "Mis Acciones"
-  },
-  "learn_title": "Aprende y gana XOLID",
-  "learn_desc": "Completa cursos y quizzes para acumular tokens",
-  "actions_history": "Tu Historial de Acciones",
-  "solidarity_title": "Acciones Solidarias",
-  "solidarity_desc": "Participa en causas sociales y gana recompensas"
+  "user_registration": "Registro de Usuario",
+  "email": "Email",
+  "wallet": "Wallet",
+  "register": "Registrar",
+  "register_success": "Registro exitoso.",
+  "register_error": "Ocurrió un error al registrar. Intenta de nuevo.",
+  "email_already_registered": "El email ya está registrado.",
+  "wallet_already_registered": "La wallet ya está registrada.",
+  "registering": "Registrando..."
 }
