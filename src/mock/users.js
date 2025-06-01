@@ -1,8 +1,8 @@
 const users = [
   {
     id: 1,
-    name: "Usuario de Ejemplo",
-    xolid: 0,
+    name: "César",
+    xolid: 10,
     actions: []
   }
 ];
