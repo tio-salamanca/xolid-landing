@@ -39,7 +39,6 @@ const App = () => {
     setCurrentUser(updatedUser);
   };
 
-  // Llamado después de registro exitoso
   const handleRegisterSuccess = (email, wallet) => {
     setRegistered(true);
     setActiveTab('education');
