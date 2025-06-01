@@ -3,8 +3,9 @@
   "education": "Bildung",
   "solidarity": "Solidarität",
   "actions": "Meine Aktionen",
+  "register": "Registrieren",
   "learn_and_earn": "Lerne und verdiene XOLID",
-  "complete_courses": "Absolviere Kurse und Quizze, um Tokens zu sammeln",
+  "complete_courses": "Absolviere Kurse und Quizze, um Token zu sammeln",
   "solidarity_actions": "Solidarische Aktionen",
   "join_causes": "Nimm an sozialen Aktionen teil und verdiene Belohnungen",
   "history": "Dein Aktionsverlauf",
@@ -12,10 +13,10 @@
   "user_registration": "Benutzerregistrierung",
   "email": "E-Mail",
   "wallet": "Wallet",
-  "register": "Registrieren",
   "registering": "Registrieren...",
-  "email_already_registered": "E-Mail ist bereits registriert.",
-  "wallet_already_registered": "Wallet ist bereits registriert.",
-  "register_success": "Erfolgreich registriert.",
-  "register_error": "Beim Registrieren ist ein Fehler aufgetreten. Bitte versuche es erneut."
+  "register_success": "Registrierung erfolgreich.",
+  "register_error": "Bei der Registrierung ist ein Fehler aufgetreten. Bitte versuche es erneut.",
+  "email_already_registered": "Die E-Mail ist bereits registriert.",
+  "wallet_already_registered": "Die Wallet ist bereits registriert.",
+  "register_btn": "Registrieren"
 }
