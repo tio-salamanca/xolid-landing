@@ -16,8 +16,10 @@ const App = () => {
   const { t } = useTranslation();
   const [currentUser, setCurrentUser] = useState(users[0]);
   const [registered, setRegistered] = useState(false);
-  const [activeTab, setActiveTab] = useState('register');
+  // El activeTab depende de si está registrado
+  const [activeTab, setActiveTab] = useState('education');
 
+  // Tabs para usuario registrado
   const tabs = [
     { id: 'education', label: t('education') },
     { id: 'solidarity', label: t('solidarity') },
