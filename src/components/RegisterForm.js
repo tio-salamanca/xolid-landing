@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { db } from "../firebase";
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
+import { useTranslation } from "react-i18next";
 
 const RegisterForm = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [wallet, setWallet] = useState("");
   const [message, setMessage] = useState("");
@@ -14,19 +16,19 @@ const RegisterForm = () => {
     setMessage("");
 
     try {
-      const q = query(collection(db, "users"), where("email", "==", email));
-      const querySnapshot = await getDocs(q);
+      const emailQuery = query(collection(db, "users"), where("email", "==", email));
+      const emailSnapshot = await getDocs(emailQuery);
 
-      const q2 = query(collection(db, "users"), where("wallet", "==", wallet));
-      const querySnapshot2 = await getDocs(q2);
+      const walletQuery = query(collection(db, "users"), where("wallet", "==", wallet));
+      const walletSnapshot = await getDocs(walletQuery);
 
-      if (!querySnapshot.empty) {
-        setMessage("El email ya está registrado.");
+      if (!emailSnapshot.empty) {
+        setMessage(t("email_already_registered") || "El email ya está registrado.");
         setLoading(false);
         return;
       }
-      if (!querySnapshot2.empty) {
-        setMessage("La wallet ya está registrada.");
+      if (!walletSnapshot.empty) {
+        setMessage(t("wallet_already_registered") || "La wallet ya está registrada.");
         setLoading(false);
         return;
       }
@@ -37,20 +39,20 @@ const RegisterForm = () => {
         createdAt: new Date()
       });
 
-      setMessage("Registro exitoso.");
+      setMessage(t("register_success") || "Registro exitoso.");
       setEmail("");
       setWallet("");
     } catch (error) {
-      setMessage("Ocurrió un error al registrar. Intenta de nuevo.");
+      setMessage(t("register_error") || "Ocurrió un error al registrar. Intenta de nuevo.");
     }
     setLoading(false);
   };
 
   return (
     <form onSubmit={handleRegister} style={{ maxWidth: 400, margin: "2rem auto" }}>
-      <h2>Registro de Usuario</h2>
+      <h2>{t("user_registration") || "Registro de Usuario"}</h2>
       <div>
-        <label>Email:</label>
+        <label>{t("email") || "Email"}:</label>
         <input
           type="email"
           required
@@ -60,7 +62,7 @@ const RegisterForm = () => {
         />
       </div>
       <div>
-        <label>Wallet:</label>
+        <label>{t("wallet") || "Wallet"}:</label>
         <input
           type="text"
           required
@@ -70,7 +72,7 @@ const RegisterForm = () => {
         />
       </div>
       <button type="submit" disabled={loading}>
-        {loading ? "Registrando..." : "Registrar"}
+        {loading ? t("registering") || "Registrando..." : t("register") || "Registrar"}
       </button>
       {message && <div style={{ marginTop: 10 }}>{message}</div>}
     </form>
