@@ -3,7 +3,7 @@ import { db } from "../firebase";
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { useTranslation } from "react-i18next";
 
-const RegisterForm = () => {
+const RegisterForm = ({ onRegisterSuccess }) => {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [wallet, setWallet] = useState("");
@@ -40,6 +40,9 @@ const RegisterForm = () => {
       });
 
       setMessage(t("register_success"));
+      if (typeof onRegisterSuccess === 'function') {
+        onRegisterSuccess(email, wallet);
+      }
       setEmail("");
       setWallet("");
     } catch (error) {
